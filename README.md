@@ -52,6 +52,6 @@ python LLM1.py
 - Demonstrates how simple statistical language models capture word dependencies
 
 ### References
-## Andrej Karpathy, "Let's build GPT: from scratch, in code, spelled out"
-## PyTorch Official Documentation: https://pytorch.org/docs/stable/
-## Datasets: Public domain texts from Project Gutenberg
+- Andrej Karpathy, "Let's build GPT: from scratch, in code, spelled out"
+- PyTorch Official Documentation: https://pytorch.org/docs/stable/
+- Datasets: Public domain texts from Project Gutenberg
