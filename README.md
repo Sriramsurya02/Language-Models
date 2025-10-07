@@ -15,3 +15,32 @@ The model is trained on:
 - Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson
 - Moby Dick; Or, The Whale by Herman Melville
 - The Wonderful Wizard of Oz by L. Frank Baum
+
+## Tech Stack
+# Languages:
+Python
+
+# Libraries:
+PyTorch
+NumPy
+Matplotlib (for loss visualization)
+
+# Tools:
+Jupyter Notebook / VS Code
+Git
+
+## Installation
+# Clone the repository
+git clone https://github.com/Sriramsurya02/Language-Model.git
+cd Language-Model
+
+# (Optional) create a cuda virtual environment
+python -m venv cuda
+source cuda/bin/activate  # on Windows: cuda\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+## Usage
+# Add the required Training data (text from books) to books.txt
+# Train the model
