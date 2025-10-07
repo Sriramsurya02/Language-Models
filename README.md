@@ -31,8 +31,8 @@ Git
 
 ## Installation
 ### Clone the repository
-git clone https://github.com/Sriramsurya02/Language-Model.git
-cd Language-Model
+- git clone https://github.com/Sriramsurya02/Language-Model.git
+- cd Language-Model
 
 ### (Optional) create a cuda virtual environment
 python -m venv cuda
