@@ -8,7 +8,7 @@ This project implements a **Bigram Model** trained on classic literary works suc
 - Generates sequences based on the training corpus
 - Provides insight into word pair frequency distributions
 
-Data Sources
+## Data Sources
 The model is trained on:
 - Frankenstein by Mary Shelley
 - Alice’s Adventures in Wonderland by Lewis Carroll
@@ -17,30 +17,41 @@ The model is trained on:
 - The Wonderful Wizard of Oz by L. Frank Baum
 
 ## Tech Stack
-# Languages:
+### Languages:
 Python
 
-# Libraries:
+### Libraries:
 PyTorch
 NumPy
 Matplotlib (for loss visualization)
 
-# Tools:
+### Tools:
 Jupyter Notebook / VS Code
 Git
 
 ## Installation
-# Clone the repository
+### Clone the repository
 git clone https://github.com/Sriramsurya02/Language-Model.git
 cd Language-Model
 
-# (Optional) create a cuda virtual environment
+### (Optional) create a cuda virtual environment
 python -m venv cuda
 source cuda/bin/activate  # on Windows: cuda\Scripts\activate
 
-# Install dependencies
+### Install dependencies
 pip install -r requirements.txt
 
-## Usage
-# Add the required Training data (text from books) to books.txt
-# Train the model
+### Add the required Training data (text from books) to books.txt
+
+### Run the Model
+python LLM1.py
+
+## Results
+### Model converges quickly on small datasets
+### Generates stylistically consistent text with recognizable sentence flow
+### Demonstrates how simple statistical language models capture word dependencies
+
+### References
+## Andrej Karpathy, "Let's build GPT: from scratch, in code, spelled out"
+## PyTorch Official Documentation: https://pytorch.org/docs/stable/
+## Datasets: Public domain texts from Project Gutenberg
