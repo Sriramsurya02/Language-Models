@@ -47,9 +47,9 @@ pip install -r requirements.txt
 python LLM1.py
 
 ## Results
-### Model converges quickly on small datasets
-### Generates stylistically consistent text with recognizable sentence flow
-### Demonstrates how simple statistical language models capture word dependencies
+Model converges quickly on small datasets
+Generates stylistically consistent text with recognizable sentence flow
+Demonstrates how simple statistical language models capture word dependencies
 
 ### References
 ## Andrej Karpathy, "Let's build GPT: from scratch, in code, spelled out"
