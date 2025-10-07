@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[12]:
+# In[16]:
 
 
 import torch
 import torch.nn as nn
+import matplotlib.pyplot as plt
 from torch.nn import functional as F
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(device)
@@ -16,17 +17,16 @@ max_iters = 50000
 eval_iters = 1000
 
 
-# In[3]:
+# In[17]:
 
 
 with open('books.txt', 'r', encoding = 'utf') as f:
     text = f.read()
 chars = sorted(set(text))
-print(chars)
 vocab_size = len(chars)
 
 
-# In[4]:
+# In[18]:
 
 
 string_to_int = { ch:i for i, ch in enumerate(chars)}
@@ -34,18 +34,15 @@ int_to_string = { i:ch for i, ch in enumerate(chars)}
 encode = lambda s: [string_to_int[c] for c in s]
 decode = lambda v: ''.join([int_to_string[c] for c in v])
 
-enc = encode("Stulp")
-print(decode(enc))
 
 
-# In[5]:
+# In[19]:
 
 
 data = torch.tensor(encode(text), dtype = torch.long)
-print(data[:100])
 
 
-# In[6]:
+# In[20]:
 
 
 n = int(0.8*len(data))
@@ -61,11 +58,10 @@ def get_batch(split):
     return x,y
 
 x, y = get_batch("train")
-print("\n inputs:", x)
-print("\n outputs:", y)
 
 
-# In[7]:
+
+# In[21]:
 
 
 def evaluate_loss():
@@ -83,7 +79,7 @@ def evaluate_loss():
 
 
 
-# In[8]:
+# In[22]:
 
 
 class BiGramLM(nn.Module):
@@ -118,12 +114,8 @@ class BiGramLM(nn.Module):
 model = BiGramLM(vocab_size)
 m = model.to(device)
 
-context = torch.zeros((1,1), dtype = torch.long, device = device)
-gen_chars = decode(m.generate(context, max_new_tokens = 500)[0].tolist())
-print(gen_chars)
 
-
-# In[9]:
+# In[23]:
 
 
 """x = train_data[:block_size]
@@ -134,15 +126,21 @@ for t in range(block_size):
     print("when input is ", context, "print" , target)"""
 
 
-# In[13]:
+# In[24]:
 
 
 optimizer = torch.optim.AdamW(model.parameters(), lr = learning_rate)
-
+step = []
+train_loss = []
+test_loss = []
 for iter in range(max_iters):
 
     if iter % eval_iters == 0 :
         print(f"step: {iter}, {evaluate_loss()["train"]:.4f}, {evaluate_loss()["test"]:.4f}")
+        step.append(iter)
+        train_loss.append(evaluate_loss()["train"])
+        test_loss.append(evaluate_loss()["test"])
+
     xb, yb = get_batch("train")
 
     logits, loss = model.forward(xb, yb)
@@ -151,9 +149,18 @@ for iter in range(max_iters):
     optimizer.step()
 
 print(loss.item())
+plt.figure(figsize=(8, 5))
+plt.plot(step, train_loss, label='Training Loss', color='blue')
+plt.plot(step, test_loss, label='Test Loss', color='orange')
+plt.xlabel('Step')
+plt.ylabel('Loss')
+plt.title('LLM Loss Curve')
+plt.legend()
+plt.grid(True)
+plt.show()
 
 
-# In[14]:
+# In[25]:
 
 
 context = torch.zeros((1,1), dtype = torch.long, device = device)
