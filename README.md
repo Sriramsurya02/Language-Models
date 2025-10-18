@@ -35,16 +35,17 @@ Git
 - cd Language-Model
 
 ### (Optional) create a cuda virtual environment
-python -m venv cuda
-source cuda/bin/activate  # on Windows: cuda\Scripts\activate
+- python -m venv cuda
+- source cuda/bin/activate  
+- on Windows: cuda\Scripts\activate
 
 ### Install dependencies
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 ### Add the required Training data (text from books) to books.txt
 
 ### Run the Model
-python LLM1.py
+- python LLM1.py
 
 ## Results
 - Model converges quickly on small datasets
