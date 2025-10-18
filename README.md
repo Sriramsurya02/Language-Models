@@ -26,8 +26,8 @@ Python
 - Matplotlib (for loss visualization)
 
 ### Tools:
-Jupyter Notebook / VS Code
-Git
+- Jupyter Notebook / VS Code
+- Git
 
 ## Installation
 ### Clone the repository
