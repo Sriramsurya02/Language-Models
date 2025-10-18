@@ -21,9 +21,9 @@ The model is trained on:
 Python
 
 ### Libraries:
-PyTorch
-NumPy
-Matplotlib (for loss visualization)
+- PyTorch
+- NumPy
+- Matplotlib (for loss visualization)
 
 ### Tools:
 Jupyter Notebook / VS Code
